@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function Header() {
+function Header(props) {
   return (
     <div className="page-header">
       <div className="row">
@@ -13,8 +13,8 @@ function Header() {
           </p>
         </div>
         <div id="scoreBoard" className="col-sm-12 col-md-4">
-          <h2 id="currentScore">Current Score: </h2>
-          <h2 id="highestScore">Highest Score: </h2>
+          <h2 id="currentScore">Current Score: {props.currentScore}</h2>
+          <h2 id="highestScore">Highest Score: {props.highestScore}</h2>
         </div>
       </div>
     </div>

@@ -4,11 +4,18 @@ import Avengers from "./avengers.json";
 import Header from "./components/Header";
 
 class App extends Component {
+  state = {
+    currentScore: 0,
+    highestScore: 0
+  };
   render() {
     const avengerTeam = Avengers;
     return (
       <Wrapper>
-        <Header />
+        <Header
+          currentScore={this.state.currentScore}
+          highestScore={this.state.highestScore}
+        />
         <div className="container">
           <div id="avengerBody" className="col-12">
             <div className="row">

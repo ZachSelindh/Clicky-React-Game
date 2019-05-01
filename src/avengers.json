@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Iron Man",
+    "image": "https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/0/0e/Ironman_large.jpg/revision/latest/scale-to-width-down/250?cb=20141129042738"
+  },
+  {
+    "id": 2,
+    "name": "Hulk",
+    "image": "https://cdn.player.one/sites/player.one/files/styles/lg/public/2017/10/14/5014474-5893830059-hulk.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Thor",
+    "image": "https://upload.wikimedia.org/wikipedia/en/3/3c/Chris_Hemsworth_as_Thor.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Captain America",
+    "image": "https://boygeniusreport.files.wordpress.com/2014/04/captain-america.jpg?quality=98&strip=all"
+  },
+  {
+    "id": 5,
+    "name": "Black Widow",
+    "image": "https://img.elcomercio.pe/files/article_content_ec_fotos/uploads/2019/02/16/5c68a6c3cef85.jpeg"
+  },
+  {
+    "id": 6,
+    "name": "Hawkeye",
+    "image": "https://static.tvtropes.org/pmwiki/pub/images/hawkeye_mcu.png"
+  },
+  {
+    "id": 7,
+    "name": "Doctor Strange",
+    "image": "https://i.redd.it/spaub6qc6gn01.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Spiderman",
+    "image": "https://i.redd.it/11y0yc0mhd411.jpg"
+  }
+]

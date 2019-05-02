@@ -2,14 +2,21 @@ import React, { Component } from "react";
 import Wrapper from "./components/Wrapper";
 import Avengers from "./avengers.json";
 import Header from "./components/Header";
+import Card from "./components/Card";
 
 class App extends Component {
   state = {
+    Avengers,
+    clickedArray: [],
     currentScore: 0,
     highestScore: 0
   };
+
+  clickButton = () => {
+    console.log();
+    this.setState({ currentScore: this.state.currentScore + 1 });
+  };
   render() {
-    const avengerTeam = Avengers;
     return (
       <Wrapper>
         <Header
@@ -19,21 +26,13 @@ class App extends Component {
         <div className="container">
           <div id="avengerBody" className="col-12">
             <div className="row">
-              {avengerTeam.map(Avenger => (
-                <div
-                  key={Avenger.name + "-" + Avenger.id}
+              {this.state.Avengers.map(Avenger => (
+                <Card
+                  name={Avenger.name}
                   id={Avenger.id}
-                  className="avengerCard"
-                >
-                  <div className="img-container">
-                    <img
-                      alt={Avenger.name}
-                      src={Avenger.image}
-                      height="200px"
-                      width="200px"
-                    />
-                  </div>
-                </div>
+                  image={Avenger.image}
+                  clickButton={this.clickButton}
+                />
               ))}
             </div>
           </div>

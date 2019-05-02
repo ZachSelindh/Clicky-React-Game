@@ -7,13 +7,6 @@ body {
   background-size: cover;
 }
 
-.avengerCard {
-  background-color: rgba(255, 255, 255, 0.6);
-  border: 3px solid black;
-  padding: 1em;
-  margin: 1em auto 1em auto;
-}
-
 #avengerBody {
   background-color: rgba(255, 255, 255, 0.6);
   border: 2px solid white;

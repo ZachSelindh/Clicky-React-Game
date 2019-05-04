@@ -3,6 +3,7 @@ import Wrapper from "./components/Wrapper";
 import Avengers from "./avengers.json";
 import Header from "./components/Header";
 import Card from "./components/Card";
+import $ from "jquery";
 
 function randomArray(Avengers) {
   let i = Avengers.length - 1;
@@ -29,7 +30,7 @@ class App extends Component {
         var newHighest = this.state.currentScore;
         localStorage.setItem("highestScore", newHighest);
       }
-      alert("You lose!");
+      $(".avengerCard").addClass("snapped");
       this.setState({ currentScore: 0, clickedArray: [] });
       return;
     } else this.state.clickedArray.push(name);

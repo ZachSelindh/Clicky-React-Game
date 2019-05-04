@@ -6,7 +6,7 @@ function Header(props) {
     <div className="page-header">
       <div id="page-row" className="row">
         <div className="col-sm-12 col-md-8">
-          <h1>Avengers, Assemble!</h1>
+          <h1 id="avenger-title">Avengers, Assemble!</h1>
           <p>
             Click an Avenger to add them to your team. But don't click them
             twice!

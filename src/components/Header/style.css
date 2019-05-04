@@ -3,7 +3,11 @@
   margin: auto;
   text-align: center;
   margin-bottom: 3em;
-  padding-top: 1em;
+  padding-top: 0.3em;
+}
+
+#page-row {
+  width: 100%;
 }
 
 #scoreBoard {

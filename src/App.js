@@ -71,7 +71,7 @@ class App extends Component {
   };
 
   clickGameOverButton = () => {
-    window.close();
+    window.reload();
   };
 
   clickButton = name => {

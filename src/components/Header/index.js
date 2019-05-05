@@ -15,7 +15,10 @@ function Header(props) {
         <div id="scoreBoard" className="col-sm-12 col-md-4">
           <h2 id="currentScore">Current Score: {props.currentScore}</h2>
           <h2 id="highestScore">
-            Highest Score: {localStorage.getItem("highestScore")}
+            Highest Score:{" "}
+            {localStorage.getItem("highestScore")
+              ? localStorage.getItem("highestScore")
+              : 0}
           </h2>
         </div>
       </div>

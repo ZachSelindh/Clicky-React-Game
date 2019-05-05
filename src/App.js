@@ -73,7 +73,7 @@ class App extends Component {
   clickGameOverButton = () => {
     this.setState({ currentScore: 0, clickedArray: [] });
     $("#gameover-modal").fadeOut(1000);
-    $("#continue-modal").fadeIn(1000);
+    $("#intro-modal").fadeIn(1500);
   };
 
   clickButton = name => {

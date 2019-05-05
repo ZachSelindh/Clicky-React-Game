@@ -1,0 +1,14 @@
+.avengerCard {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 3px solid black;
+  padding: 1em;
+  margin: 1em auto 1em auto;
+  overflow: hidden;
+}
+
+.avengerCard:hover {
+  cursor: pointer;
+  box-shadow: 10px 10px 10px grey;
+  transform: scale(1.05);
+  transition-duration: 0.5s;
+}

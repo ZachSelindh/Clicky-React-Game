@@ -5,6 +5,8 @@ import Header from "./components/Header";
 import Card from "./components/Card";
 import Backdrop from "./components/Backdrop";
 import IntroModal from "./components/IntroModal";
+import ContinueModal from "./components/ContinueModal";
+import GameOverModal from "./components/GameOverModal";
 import $ from "jquery";
 
 function randomArray(Avengers) {
@@ -25,6 +27,15 @@ function thanosSnap() {
   setInterval(function() {
     $("#avengerBody").fadeOut(1000);
   }, 4000);
+  setInterval(function() {
+    $("#gameover-modal").fadeIn(1000);
+  }, 4000);
+}
+
+function revealContinueModal() {
+  $("#backdrop").fadeIn(1500);
+  $("#continue-modal").fadeIn(1500);
+  $("#avengerBody").fadeOut(1500);
 }
 
 function randomNumberforSnap() {
@@ -52,6 +63,17 @@ class App extends Component {
     $("#avengerBody").fadeIn(1500);
   };
 
+  clickContinueButton = () => {
+    this.setState({ clickedArray: [] });
+    $("#backdrop").fadeOut(1500);
+    $("#continue-modal").fadeOut(1500);
+    $("#avengerBody").fadeIn(1500);
+  };
+
+  clickGameOverButton = () => {
+    window.close();
+  };
+
   clickButton = name => {
     if (this.state.clickedArray.includes(name)) {
       // Sets localstorage with the new high score.
@@ -60,12 +82,14 @@ class App extends Component {
         localStorage.setItem("highestScore", newHighest);
       }
       this.setState({ currentScore: 0, clickedArray: [] });
+
+      // Function that dissolves all avengers cards.
       thanosSnap();
     } else {
       this.state.clickedArray.push(name);
+      console.log(this.state.clickedArray);
       if (this.state.clickedArray.length === 12) {
-        alert("You win! Click okay to play again.");
-        this.setState({ clickedArray: [] });
+        revealContinueModal();
       } else if (this.state.clickedArray.length < 12) {
         randomArray(Avengers).map(Avenger => (
           <Card
@@ -87,6 +111,8 @@ class App extends Component {
       <Wrapper>
         <Backdrop />
         <IntroModal clickBeginButton={this.clickBeginButton} />
+        <ContinueModal clickContinueButton={this.clickContinueButton} />
+        <GameOverModal clickGameOverButton={this.clickGameOverButton} />
         <Header
           currentScore={this.state.currentScore}
           highestScore={this.state.highestScore}

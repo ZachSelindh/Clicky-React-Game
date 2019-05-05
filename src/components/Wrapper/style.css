@@ -8,9 +8,12 @@ body {
 }
 
 #avengerBody {
+  display: none;
+  position: relative;
   background-color: rgba(255, 255, 255, 0.6);
   border: 2px solid white;
   padding: 1em;
   margin: auto;
   text-align: center;
+  min-height: 34em;
 }

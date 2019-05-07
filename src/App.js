@@ -71,7 +71,6 @@ class App extends Component {
   };
 
   clickGameOverButton = () => {
-    this.setState({ currentScore: 0, clickedArray: [] });
     $("#gameover-modal").fadeOut(1000);
     $("#gameover-modal").css({ display: "none" });
     randomArray(Avengers).map(Avenger => (
@@ -84,7 +83,7 @@ class App extends Component {
         hidden={this.state.hidden}
       />
     ));
-    $("#avengerBody").fadeIn(1000);
+    $("#avengerBody").fadeIn(1500);
   };
 
   clickButton = name => {
@@ -95,7 +94,6 @@ class App extends Component {
         localStorage.setItem("highestScore", newHighest);
       }
       this.setState({ currentScore: 0, clickedArray: [] });
-
       // Function that dissolves all avengers cards.
       thanosSnap();
     } else {

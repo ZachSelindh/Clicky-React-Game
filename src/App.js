@@ -29,6 +29,7 @@ function thanosSnap() {
   }, 4000);
   setTimeout(function() {
     $("#gameover-modal").fadeIn(1000);
+    $("#backdrop").fadeIn(1000);
   }, 4000);
 }
 
@@ -36,11 +37,6 @@ function revealContinueModal() {
   $("#backdrop").fadeIn(1500);
   $("#continue-modal").fadeIn(1500);
   $("#avengerBody").fadeOut(1500);
-}
-
-function revealIntroModal() {
-  $("#backdrop").fadeIn(2000);
-  $("#intro-modal").fadeIn(2000);
 }
 
 function randomNumberforSnap() {
@@ -58,7 +54,8 @@ class App extends Component {
 
   componentDidMount() {
     this.setState({ shuffledAvengers: randomArray(Avengers) });
-    revealIntroModal();
+    $("#backdrop").fadeIn(2000);
+    $("#intro-modal").fadeIn(2000);
   }
 
   clickBeginButton = () => {
@@ -78,7 +75,7 @@ class App extends Component {
     console.log("Lost game");
     this.setState({ currentScore: 0, clickedArray: [] });
     $("#gameover-modal").fadeOut(1000);
-    revealIntroModal();
+    $("#intro-modal").fadeIn(1000);
     $(".avengerCard").each(function() {
       $(this).animate({ opacity: 1 }, randomNumberforSnap());
     });

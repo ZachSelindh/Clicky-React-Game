@@ -73,6 +73,17 @@ class App extends Component {
   clickGameOverButton = () => {
     this.setState({ currentScore: 0, clickedArray: [] });
     $("#gameover-modal").fadeOut(1000);
+    $("#gameover-modal").css({ display: "none" });
+    randomArray(Avengers).map(Avenger => (
+      <Card
+        key={Avenger.name + "-" + Avenger.id}
+        name={Avenger.name}
+        id={Avenger.id}
+        image={Avenger.image}
+        clickButton={this.clickButton.bind(this, Avenger.name)}
+        hidden={this.state.hidden}
+      />
+    ));
     $("#avengerBody").fadeIn(1000);
   };
 

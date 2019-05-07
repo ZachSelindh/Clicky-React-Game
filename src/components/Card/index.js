@@ -14,7 +14,7 @@ function Card(props) {
           src={props.image}
           height="190px"
           width="190px"
-          onClick={props.clickButton}
+          onClick={props.clickCardButton}
           hidden={props.hidden}
         />
       </div>

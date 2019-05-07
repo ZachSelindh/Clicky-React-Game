@@ -87,16 +87,16 @@ class App extends Component {
         clickButton={this.clickButton.bind(this, Avenger.name)}
       />
     ));
+    return;
   };
 
-  clickButton = name => {
+  clickCardButton = name => {
     if (this.state.clickedArray.includes(name)) {
       // Sets localstorage with the new high score.
       if (this.state.currentScore > localStorage.getItem("highestScore")) {
         var newHighest = this.state.currentScore;
         localStorage.setItem("highestScore", newHighest);
       }
-
       // Function that dissolves all avengers cards.
       thanosSnap();
     } else {
@@ -138,7 +138,7 @@ class App extends Component {
                 name={Avenger.name}
                 id={Avenger.id}
                 image={Avenger.image}
-                clickButton={this.clickButton.bind(this, Avenger.name)}
+                clickCardButton={this.clickCardButton.bind(this, Avenger.name)}
               />
             ))}
           </div>

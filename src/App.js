@@ -24,10 +24,10 @@ function thanosSnap() {
   $(".avengerCard").each(function() {
     $(this).animate({ opacity: 0 }, randomNumberforSnap());
   });
-  setInterval(function() {
+  setTimeout(function() {
     $("#avengerBody").fadeOut(1000);
   }, 4000);
-  setInterval(function() {
+  setTimeout(function() {
     $("#gameover-modal").fadeIn(1000);
   }, 4000);
 }
@@ -36,6 +36,11 @@ function revealContinueModal() {
   $("#backdrop").fadeIn(1500);
   $("#continue-modal").fadeIn(1500);
   $("#avengerBody").fadeOut(1500);
+}
+
+function revealIntroModal() {
+  $("#backdrop").fadeIn(2000);
+  $("#intro-modal").fadeIn(2000);
 }
 
 function randomNumberforSnap() {
@@ -53,8 +58,7 @@ class App extends Component {
 
   componentDidMount() {
     this.setState({ shuffledAvengers: randomArray(Avengers) });
-    $("#backdrop").fadeIn(2000);
-    $("#intro-modal").fadeIn(2000);
+    revealIntroModal();
   }
 
   clickBeginButton = () => {
@@ -71,23 +75,13 @@ class App extends Component {
   };
 
   clickGameOverButton = () => {
+    console.log("Lost game");
     this.setState({ currentScore: 0, clickedArray: [] });
     $("#gameover-modal").fadeOut(1000);
-    /* $("#gameover-modal").css({ display: "none" }); */
-    $("#avengerBody").fadeIn(1500);
+    revealIntroModal();
     $(".avengerCard").each(function() {
       $(this).animate({ opacity: 1 }, randomNumberforSnap());
     });
-    randomArray(Avengers).map(Avenger => (
-      <Card
-        key={Avenger.name + "-" + Avenger.id}
-        name={Avenger.name}
-        id={Avenger.id}
-        image={Avenger.image}
-        clickButton={this.clickButton.bind(this, Avenger.name)}
-      />
-    ));
-    return;
   };
 
   clickCardButton = name => {
@@ -100,6 +94,7 @@ class App extends Component {
       // Function that dissolves all avengers cards.
       thanosSnap();
     } else {
+      this.setState({ currentScore: this.state.currentScore + 1 });
       this.state.clickedArray.push(name);
       console.log(this.state.clickedArray);
       if (this.state.clickedArray.length === 12) {
@@ -111,11 +106,10 @@ class App extends Component {
             name={Avenger.name}
             id={Avenger.id}
             image={Avenger.image}
-            clickButton={this.clickButton.bind(this, Avenger.name)}
+            clickCardButton={this.clickCardButton.bind(this, Avenger.name)}
           />
         ));
       }
-      this.setState({ currentScore: this.state.currentScore + 1 });
     }
   };
 

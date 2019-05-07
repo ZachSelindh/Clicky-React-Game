@@ -71,8 +71,13 @@ class App extends Component {
   };
 
   clickGameOverButton = () => {
+    this.setState({ currentScore: 0, clickedArray: [] });
     $("#gameover-modal").fadeOut(1000);
-    $("#gameover-modal").css({ display: "none" });
+    /* $("#gameover-modal").css({ display: "none" }); */
+    $("#avengerBody").fadeIn(1500);
+    $(".avengerCard").each(function() {
+      $(this).animate({ opacity: 1 }, randomNumberforSnap());
+    });
     randomArray(Avengers).map(Avenger => (
       <Card
         key={Avenger.name + "-" + Avenger.id}
@@ -80,10 +85,8 @@ class App extends Component {
         id={Avenger.id}
         image={Avenger.image}
         clickButton={this.clickButton.bind(this, Avenger.name)}
-        hidden={this.state.hidden}
       />
     ));
-    $("#avengerBody").fadeIn(1500);
   };
 
   clickButton = name => {
@@ -93,7 +96,7 @@ class App extends Component {
         var newHighest = this.state.currentScore;
         localStorage.setItem("highestScore", newHighest);
       }
-      this.setState({ currentScore: 0, clickedArray: [] });
+
       // Function that dissolves all avengers cards.
       thanosSnap();
     } else {
@@ -109,7 +112,6 @@ class App extends Component {
             id={Avenger.id}
             image={Avenger.image}
             clickButton={this.clickButton.bind(this, Avenger.name)}
-            hidden={this.state.hidden}
           />
         ));
       }
@@ -137,7 +139,6 @@ class App extends Component {
                 id={Avenger.id}
                 image={Avenger.image}
                 clickButton={this.clickButton.bind(this, Avenger.name)}
-                hidden={this.state.hidden}
               />
             ))}
           </div>

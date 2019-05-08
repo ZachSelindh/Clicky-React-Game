@@ -72,10 +72,9 @@ class App extends Component {
   };
 
   clickGameOverButton = () => {
-    console.log("Lost game");
     this.setState({ currentScore: 0, clickedArray: [] });
     $("#gameover-modal").fadeOut(1000);
-    $("#intro-modal").fadeIn(1000);
+    $("#avengerBody").fadeIn(1000);
     $(".avengerCard").each(function() {
       $(this).animate({ opacity: 1 }, randomNumberforSnap());
     });
@@ -93,7 +92,6 @@ class App extends Component {
     } else {
       this.setState({ currentScore: this.state.currentScore + 1 });
       this.state.clickedArray.push(name);
-      console.log(this.state.clickedArray);
       if (this.state.clickedArray.length === 12) {
         revealContinueModal();
       } else if (this.state.clickedArray.length < 12) {

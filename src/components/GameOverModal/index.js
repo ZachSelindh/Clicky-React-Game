@@ -8,7 +8,7 @@ function GameOverModal(props) {
         <h1 id="gameover-modal-title"> Defeat </h1>
         <p className="gameover-modal-text"> Game Over. </p>
         <br />
-        <img alt="Thanos" src="../assets/images/thanos.jpg" height="250px" />
+        <img alt="Thanos" src="../assets/images/snap.gif" height="250px" />
         <br />
         <br />
         <p className="gameover-modal-text">
@@ -19,7 +19,7 @@ function GameOverModal(props) {
           className="btn btn-dark"
           onClick={props.clickGameOverButton}
         >
-          Accept Defeat
+          Try Again
         </button>
       </div>
     </div>

@@ -75,6 +75,7 @@ class App extends Component {
     this.setState({ currentScore: 0, clickedArray: [] });
     $("#gameover-modal").fadeOut(1000);
     $("#avengerBody").fadeIn(1000);
+    $("#backdrop").fadeOut(1000);
     $(".avengerCard").each(function() {
       $(this).animate({ opacity: 1 }, randomNumberforSnap());
     });
